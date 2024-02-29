@@ -22,27 +22,14 @@ class _SplashSceenViewState extends State<SplashSceenView> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body: Stack(
-      alignment: Alignment.bottomCenter,
-      fit: StackFit.passthrough,
+            body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(
-          'assets/images/bg_background.svg',
-          height: screenHieght(1),
-          width: screenWidth(1),
-        ),
-        Center(
-            child: SvgPicture.asset(
-          'assets/images/Logo.svg',
-          width: screenWidth(5),
-          height: screenHieght(5),
-        )),
+        Image.asset('assets/images/ll.png'),
         Container(
-          margin: EdgeInsets.only(bottom: screenWidth(3)),
-          // width: size.width*0.1,
-          height: screenWidth(3),
+          height: screenWidth(6),
           child: SpinKitThreeBounce(
-            color: AppColors.mainOrangeColor,
+            color: Colors.orange,
           ),
         ),
       ],
