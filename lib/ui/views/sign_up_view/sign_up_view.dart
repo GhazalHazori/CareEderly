@@ -20,6 +20,7 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth(20)),
         child: Column(
@@ -38,9 +39,13 @@ class _SignUpViewState extends State<SignUpView> {
             ),
             screenHieght(20).ph,
             CustomTextFormField(
+              suffixi: Icon(
+                Icons.email_outlined,
+                color: AppColors.mainBlueColorE,
+              ),
               hintText: 'Your Email',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainback,
+              hintTextColor: AppColors.mainBlueColorE,
               controller: controller.emailController,
               validator: (value) {
                 if (value!.isEmpty || !isEmail(value)) {
@@ -51,13 +56,17 @@ class _SignUpViewState extends State<SignUpView> {
             ),
             screenHieght(20).ph,
             CustomTextFormField(
-              hintText: 'Your password',
+              suffixi: Icon(
+                Icons.phone,
+                color: AppColors.mainBlueColorE,
+              ),
+              hintText: 'Your Phone',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainback,
+              hintTextColor: AppColors.mainBlueColorE,
               controller: controller.emailController,
               validator: (value) {
-                if (value!.isEmpty || !isPassword(value)) {
-                  return 'please check your password';
+                if (value!.isEmpty || !isVaildMobileNo(value)) {
+                  return 'please check your MobilePhone';
                 }
                 return null;
               },
@@ -69,11 +78,11 @@ class _SignUpViewState extends State<SignUpView> {
                   maxWidth: screenWidth(2.5),
                   hintText: 'first name',
                   fillColor: AppColors.mainGrey,
-                  hintTextColor: AppColors.mainback,
+                  hintTextColor: AppColors.mainBlueColorE,
                   controller: controller.emailController,
                   validator: (value) {
-                    if (value!.isEmpty || !isEmail(value)) {
-                      return 'please check your email';
+                    if (value!.isEmpty || !isVaildName(value)) {
+                      return 'please check your first name';
                     }
                     return null;
                   },
@@ -85,11 +94,11 @@ class _SignUpViewState extends State<SignUpView> {
                   maxWidth: screenWidth(2.5),
                   hintText: 'second name',
                   fillColor: AppColors.mainGrey,
-                  hintTextColor: AppColors.mainback,
+                  hintTextColor: AppColors.mainBlueColorE,
                   controller: controller.emailController,
                   validator: (value) {
-                    if (value!.isEmpty || !isPassword(value)) {
-                      return 'please check your password';
+                    if (value!.isEmpty || !isVaildName(value)) {
+                      return 'please check your second name';
                     }
                     return null;
                   },
@@ -102,13 +111,13 @@ class _SignUpViewState extends State<SignUpView> {
               alignment: AlignmentDirectional.topStart,
               child: CustomTextFormField(
                 maxWidth: screenWidth(2.5),
-                hintText: 'second name',
+                hintText: 'age',
                 fillColor: AppColors.mainGrey,
-                hintTextColor: AppColors.mainback,
+                hintTextColor: AppColors.mainBlueColorE,
                 controller: controller.emailController,
                 validator: (value) {
-                  if (value!.isEmpty || !isPassword(value)) {
-                    return 'please check your password';
+                  if (value!.isEmpty) {
+                    return 'please check your age';
                   }
                   return null;
                 },

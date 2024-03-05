@@ -16,6 +16,8 @@ class CustomTextFormField extends StatelessWidget {
     this.prefixIconColor,
     this.maxHeight,
     this.maxWidth,
+    this.suffixi,
+    this.suffixIconColor,
   });
 
   final String hintText;
@@ -26,7 +28,10 @@ class CustomTextFormField extends StatelessWidget {
   final bool obscureText;
   final String? Function(String?)? validator;
   final Widget? prefixIcon;
+  final Widget? suffixi;
+
   final Color? prefixIconColor;
+  final Color? suffixIconColor;
   final double? maxHeight;
   final double? maxWidth;
 
@@ -43,6 +48,8 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         prefixIconColor: prefixIconColor,
+        suffixIconColor: suffixIconColor,
+        suffixIcon: suffixi,
         contentPadding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
         constraints: BoxConstraints(
           maxHeight: maxHeight ?? screenHieght(15),

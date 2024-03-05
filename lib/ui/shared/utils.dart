@@ -31,3 +31,13 @@ bool isPassword(String value) {
   RegExp regExp = new RegExp(r'^(?=.*?[A-Z])(?=.*?[!@#\$&*~]).{8,}$');
   return regExp.hasMatch(value);
 }
+
+bool isVaildMobileNo(String value) {
+  RegExp regExp = new RegExp(r'^\+?09[0-9]{8}$');
+  return regExp.hasMatch(value);
+}
+
+bool isVaildName(String value) {
+  RegExp regExp = new RegExp(r"^[a-zA-Z]+(([\'\-\s][a-zA-Z])?[a-zA-Z]*)*$");
+  return regExp.hasMatch(value);
+}

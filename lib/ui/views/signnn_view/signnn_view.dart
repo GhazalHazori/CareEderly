@@ -36,30 +36,71 @@ class _SignnnUpViewState extends State<SignnnUpView> {
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
           screenHieght(20).ph,
-          CustomTextFormField(
-            hintText: 'Your Email',
-            fillColor: AppColors.mainGrey,
-            hintTextColor: AppColors.mainback,
-            controller: controller.emailController,
-            validator: (value) {
-              if (value!.isEmpty || !isEmail(value)) {
-                return 'please check your email';
-              }
-              return null;
-            },
+          Obx(
+            () => CustomTextFormField(
+              suffixi: InkWell(
+                onTap: () {
+                  controller.hidePassword2(
+                    password: controller.passwordVisible2,
+                    value: controller.passwordVisible2.value,
+                  );
+                },
+                child: controller.passwordVisible2.value
+                    ? Icon(
+                        Icons.visibility,
+                        color: AppColors.mainBlueColorE,
+                      )
+                    : Icon(
+                        Icons.visibility_off,
+                        color: AppColors.mainBlueColorE,
+                      ),
+              ),
+              hintText: 'Your Password',
+              fillColor: AppColors.mainGrey,
+              hintTextColor: AppColors.mainBlueColorE,
+              controller: controller.passwordController,
+              validator: (value) {
+                if (value!.isEmpty || !isPassword(value)) {
+                  return 'please check your password';
+                }
+                return null;
+              },
+            ),
           ),
           screenHieght(20).ph,
-          CustomTextFormField(
-            hintText: 'Your password',
-            fillColor: AppColors.mainGrey,
-            hintTextColor: AppColors.mainback,
-            controller: controller.emailController,
-            validator: (value) {
-              if (value!.isEmpty || !isPassword(value)) {
-                return 'please check your password';
-              }
-              return null;
-            },
+          Obx(
+            () => CustomTextFormField(
+              suffixi: InkWell(
+                onTap: () {
+                  controller.hidePassword(
+                    password: controller.passwordVisible,
+                    value: controller.passwordVisible.value,
+                  );
+                },
+                child: controller.passwordVisible.value
+                    ? Icon(
+                        Icons.visibility,
+                        color: AppColors.mainBlueColorE,
+                      )
+                    : Icon(
+                        Icons.visibility_off,
+                        color: AppColors.mainBlueColorE,
+                      ),
+              ),
+              hintText: 'Confirm password',
+              fillColor: AppColors.mainGrey,
+              hintTextColor: AppColors.mainBlueColorE,
+              controller: controller.confirmpasswordController,
+              validator: (value) {
+                if (value!.isEmpty ||
+                    !isPassword(value) ||
+                    controller.passwordController !=
+                        controller.confirmpasswordController) {
+                  return 'please check your confirm password';
+                }
+                return null;
+              },
+            ),
           ),
           screenHieght(20).ph,
           CustomButtonGer(

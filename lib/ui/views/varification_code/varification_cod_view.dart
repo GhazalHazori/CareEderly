@@ -43,13 +43,13 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                     screenHieght(50).ph,
                     CustomText(
                       fontSize: 30,
-                      text: 'your mobile',
+                      text: 'your email',
                       textAlign: TextAlign.start,
                       textColor: AppColors.mainblack,
                     ),
                     screenHieght(50).ph,
                     CustomText(
-                      text: 'Please check your mobile  09***009',
+                      text: 'Please check your email  *****.com',
                       textAlign: TextAlign.center,
                       textColor: AppColors.secondaryGreyColor,
                       fontSize: 24,
@@ -65,13 +65,12 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                       length: 4,
                       obscureText: true,
                       obscuringCharacter: '*',
-                      //الرقم يتحول لنجمة
                       animationType: AnimationType.slide, //can change
                       pinTheme: PinTheme(
                         shape: PinCodeFieldShape.box, //can change
                         borderRadius: BorderRadius.circular(5),
-                        selectedFillColor: AppColors.fillGreyColor,
-                        inactiveFillColor: AppColors.fillGreyColor,
+                        selectedFillColor: AppColors.mainBlueEpin,
+                        inactiveFillColor: AppColors.mainBlueEpin,
                         fieldHeight: screenWidth(5),
                         fieldWidth: screenWidth(5),
                         activeFillColor: AppColors.fillGreyColor,
@@ -84,9 +83,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                       hintCharacter: '*',
 
                       animationDuration: Duration(milliseconds: 300),
-                      // backgroundColor: AppColors.textFieldColor,
                       enableActiveFill: true,
-                      //errorAnimationController: errorController,
                       controller: controllerCode,
                       // بتتحسس لكل مدخلات عند لخر ادخال خدني ع واجهة اذا مافي زر
                       // onChanged: (value) {
