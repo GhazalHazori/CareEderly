@@ -21,3 +21,13 @@ void customLoader() => BotToast.showCustomLoading(toastBuilder: (context) {
           height: screenHieght(4),
           child: SpinKitCircle());
     });
+bool isEmail(String value) {
+  RegExp regExp = new RegExp(
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+  return regExp.hasMatch(value);
+}
+
+bool isPassword(String value) {
+  RegExp regExp = new RegExp(r'^(?=.*?[A-Z])(?=.*?[!@#\$&*~]).{8,}$');
+  return regExp.hasMatch(value);
+}

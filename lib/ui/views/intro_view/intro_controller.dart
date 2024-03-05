@@ -13,6 +13,14 @@ class IntroController extends BaseController {
     }
   }
 
+  void decrementIndex() {
+    if (currentIndex != 2) {
+      currentIndex -= 1;
+    } else {
+      currentIndex = 0.obs;
+    }
+  }
+
   bool isLastIndex() {
     return currentIndex == 2;
   }
