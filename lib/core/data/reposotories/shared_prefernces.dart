@@ -16,7 +16,21 @@ class SharedPrefrenceRepostory {
   String PREF_APP_LANG = 'app_lang';
   String PREF_CART_LIST = 'cart_list';
   String PREF_SUB_STATUS = 'sub_status';
+  static String PREF_CURRENT_USER_EMAIL = "current user email";
   //list
+  void setLoginInfo(List<Object?> value) {
+    setPreference(
+        dataType: DataType.STRINGLIST,
+        key: PREF_CURRENT_USER_EMAIL,
+        value: value);
+  }
+
+  List<Object?> getLoginInfo() {
+    if (globalSharedPreference.containsKey(PREF_CURRENT_USER_EMAIL))
+      return getPreferenc(key: PREF_CURRENT_USER_EMAIL);
+    else
+      return [];
+  }
 
   void setTokenInfo(TokenInfo value) {
     setPreference(
