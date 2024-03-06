@@ -48,16 +48,16 @@ class _SignnnUpViewState extends State<SignnnUpView> {
                 child: controller.passwordVisible2.value
                     ? Icon(
                         Icons.visibility,
-                        color: AppColors.mainBlueColorE,
+                        color: AppColors.mainBlueEpin,
                       )
                     : Icon(
                         Icons.visibility_off,
-                        color: AppColors.mainBlueColorE,
+                        color: AppColors.mainBlueEpin,
                       ),
               ),
               hintText: 'Your Password',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainBlueColorE,
+              hintTextColor: AppColors.mainBlueEpin,
               controller: controller.passwordController,
               validator: (value) {
                 if (value!.isEmpty || !isPassword(value)) {
@@ -80,16 +80,16 @@ class _SignnnUpViewState extends State<SignnnUpView> {
                 child: controller.passwordVisible.value
                     ? Icon(
                         Icons.visibility,
-                        color: AppColors.mainBlueColorE,
+                        color: AppColors.mainBlueEpin,
                       )
                     : Icon(
                         Icons.visibility_off,
-                        color: AppColors.mainBlueColorE,
+                        color: AppColors.mainBlueEpin,
                       ),
               ),
               hintText: 'Confirm password',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainBlueColorE,
+              hintTextColor: AppColors.mainBlueEpin,
               controller: controller.confirmpasswordController,
               validator: (value) {
                 if (value!.isEmpty ||
@@ -112,18 +112,21 @@ class _SignnnUpViewState extends State<SignnnUpView> {
             hight: screenHieght(18),
           ),
           screenHieght(20).ph,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              CustomButtonGer(
-                onTap: () {
-                  Get.to(SignnView());
-                },
-                text: 'back',
-                wight: screenWidth(3),
-                hight: screenHieght(18),
-              ),
-            ],
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: screenWidth(20)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CustomButtonGer(
+                  onTap: () {
+                    Get.to(SignnView());
+                  },
+                  text: 'back',
+                  wight: screenWidth(3),
+                  hight: screenHieght(18),
+                ),
+              ],
+            ),
           ),
         ],
       ),

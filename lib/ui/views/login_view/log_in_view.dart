@@ -40,11 +40,11 @@ class _LogInViewState extends State<LogInView> {
           CustomTextFormField(
             suffixi: Icon(
               Icons.email_outlined,
-              color: AppColors.mainBlueColorE,
+              color: AppColors.mainBlueEpin,
             ),
             hintText: 'Your Email',
             fillColor: AppColors.mainGrey,
-            hintTextColor: AppColors.mainBlueColorE,
+            hintTextColor: AppColors.mainBlueEpin,
             controller: controller.emailController,
             validator: (value) {
               if (value!.isEmpty || !isEmail(value)) {
@@ -56,7 +56,6 @@ class _LogInViewState extends State<LogInView> {
           screenHieght(20).ph,
           Obx(
             () => CustomTextFormField(
-              suffixIconColor: AppColors.mainBlueColorE,
               obscureText: !controller.passwordVisible.value,
               suffixi: InkWell(
                 onTap: () {
@@ -68,16 +67,16 @@ class _LogInViewState extends State<LogInView> {
                 child: controller.passwordVisible.value
                     ? Icon(
                         Icons.visibility,
-                        color: AppColors.mainBlueColorE,
+                        color: AppColors.mainBlueEpin,
                       )
                     : Icon(
                         Icons.visibility_off,
-                        color: AppColors.mainBlueColorE,
+                        color: AppColors.mainBlueEpin,
                       ),
               ),
               hintText: 'Your password',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainBlueColorE,
+              hintTextColor: AppColors.mainBlueEpin,
               controller: controller.passwordController,
               validator: (value) {
                 if (value!.isEmpty || !isPassword(value)) {

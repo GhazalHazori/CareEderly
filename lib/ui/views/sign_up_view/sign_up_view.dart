@@ -41,11 +41,11 @@ class _SignUpViewState extends State<SignUpView> {
             CustomTextFormField(
               suffixi: Icon(
                 Icons.email_outlined,
-                color: AppColors.mainBlueColorE,
+                color: AppColors.mainBlueEpin,
               ),
               hintText: 'Your Email',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainBlueColorE,
+              hintTextColor: AppColors.mainBlueEpin,
               controller: controller.emailController,
               validator: (value) {
                 if (value!.isEmpty || !isEmail(value)) {
@@ -58,11 +58,11 @@ class _SignUpViewState extends State<SignUpView> {
             CustomTextFormField(
               suffixi: Icon(
                 Icons.phone,
-                color: AppColors.mainBlueColorE,
+                color: AppColors.mainBlueEpin,
               ),
               hintText: 'Your Phone',
               fillColor: AppColors.mainGrey,
-              hintTextColor: AppColors.mainBlueColorE,
+              hintTextColor: AppColors.mainBlueEpin,
               controller: controller.emailController,
               validator: (value) {
                 if (value!.isEmpty || !isVaildMobileNo(value)) {
@@ -78,7 +78,7 @@ class _SignUpViewState extends State<SignUpView> {
                   maxWidth: screenWidth(2.5),
                   hintText: 'first name',
                   fillColor: AppColors.mainGrey,
-                  hintTextColor: AppColors.mainBlueColorE,
+                  hintTextColor: AppColors.mainBlueEpin,
                   controller: controller.emailController,
                   validator: (value) {
                     if (value!.isEmpty || !isVaildName(value)) {
@@ -94,7 +94,7 @@ class _SignUpViewState extends State<SignUpView> {
                   maxWidth: screenWidth(2.5),
                   hintText: 'second name',
                   fillColor: AppColors.mainGrey,
-                  hintTextColor: AppColors.mainBlueColorE,
+                  hintTextColor: AppColors.mainBlueEpin,
                   controller: controller.emailController,
                   validator: (value) {
                     if (value!.isEmpty || !isVaildName(value)) {
@@ -113,7 +113,7 @@ class _SignUpViewState extends State<SignUpView> {
                 maxWidth: screenWidth(2.5),
                 hintText: 'age',
                 fillColor: AppColors.mainGrey,
-                hintTextColor: AppColors.mainBlueColorE,
+                hintTextColor: AppColors.mainBlueEpin,
                 controller: controller.emailController,
                 validator: (value) {
                   if (value!.isEmpty) {

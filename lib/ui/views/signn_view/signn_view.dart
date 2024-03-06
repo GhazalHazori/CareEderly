@@ -46,44 +46,54 @@ class _SignnViewState extends State<SignnView> {
           itemBuilder: (context, index) {
             return ListTile(
               leading: Obx(
-                () => Radio(
+                () => Checkbox(
                   activeColor: AppColors.mainBlueColorE,
-                  value: index,
-                  groupValue: controller.selectedDiseases.value,
-                  onChanged: (value) {
-                    controller.selectedDiseases.value = value!;
+                  value: controller.selectedDiseases.contains(index),
+                  onChanged: (bool? value) {
+                    controller.selectDisease(index);
                   },
                 ),
               ),
-              title: Text(controller.disesesList[index]),
+              title: Obx(
+                () => Text(
+                  controller.disesesList[index],
+                  style: TextStyle(
+                    color: controller.selectedDiseases.contains(index)
+                        ? AppColors.mainBlueColorE
+                        : Colors.black,
+                  ),
+                ),
+              ),
             );
           },
         ),
       ),
       screenHieght(20).ph,
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          CustomButtonGer(
-            hight: screenHieght(18),
-            wight: screenWidth(3),
-            text: 'Back',
-            onTap: () {
-              Get.to(SignUpView());
-            },
-          ),
-          SizedBox(
-            width: screenWidth(3),
-          ),
-          CustomButtonGer(
-            hight: screenHieght(18),
-            wight: screenWidth(3),
-            text: 'Next',
-            onTap: () {
-              Get.to(SignnnUpView());
-            },
-          )
-        ],
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: screenWidth(20)),
+        child: Row(
+          children: [
+            CustomButtonGer(
+              hight: screenHieght(18),
+              wight: screenWidth(3),
+              text: 'Back',
+              onTap: () {
+                Get.to(SignUpView());
+              },
+            ),
+            SizedBox(
+              width: screenWidth(5),
+            ),
+            CustomButtonGer(
+              hight: screenHieght(18),
+              wight: screenWidth(3),
+              text: 'Next',
+              onTap: () {
+                Get.to(SignnnUpView());
+              },
+            )
+          ],
+        ),
       )
     ]));
   }

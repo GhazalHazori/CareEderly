@@ -117,35 +117,39 @@ class _IntroViewState extends State<IntroView> {
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 20, color: Colors.black)),
                     40.ph,
-                    Obx(() => Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Visibility(
-                              visible: controller.currentIndex != 0,
-                              child: CustomButtonGer(
+                    Obx(() => Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: screenWidth(20)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Visibility(
+                                visible: controller.currentIndex != 0,
+                                child: CustomButtonGer(
+                                    hight: screenHieght(18),
+                                    wight: screenWidth(3),
+                                    text: 'Back',
+                                    onTap: () {
+                                      if (!controller.isLastIndex()) {
+                                        controller.decrementIndex();
+                                      } else
+                                        Get.off(SplashSceenView());
+                                    }),
+                              ),
+                              CustomButtonGer(
                                   hight: screenHieght(18),
                                   wight: screenWidth(3),
-                                  text: 'Back',
+                                  text: controller.isLastIndex()
+                                      ? 'Finish'
+                                      : 'Next',
                                   onTap: () {
                                     if (!controller.isLastIndex()) {
-                                      controller.decrementIndex();
+                                      controller.incrementIndex();
                                     } else
-                                      Get.off(SplashSceenView());
+                                      Get.off(LandingView());
                                   }),
-                            ),
-                            CustomButtonGer(
-                                hight: screenHieght(18),
-                                wight: screenWidth(3),
-                                text: controller.isLastIndex()
-                                    ? 'Finish'
-                                    : 'Next',
-                                onTap: () {
-                                  if (!controller.isLastIndex()) {
-                                    controller.incrementIndex();
-                                  } else
-                                    Get.off(LandingView());
-                                }),
-                          ],
+                            ],
+                          ),
                         )),
                   ],
                 ),

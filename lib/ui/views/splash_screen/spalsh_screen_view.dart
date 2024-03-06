@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_image.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 import 'package:flutter_templete/ui/views/splash_screen/splash_screen_controller.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,9 @@ class _SplashSceenViewState extends State<SplashSceenView> {
             body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset('assets/images/logo.png'),
+        CustomImage(
+          name: 'logo',
+        ),
         screenWidth(20).ph,
         Container(
           height: screenWidth(6),

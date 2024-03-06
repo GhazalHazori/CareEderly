@@ -19,58 +19,66 @@ class _LandingViewState extends State<LandingView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
+        body: Stack(
           children: [
-            screenHieght(20).ph,
-            Center(
-              child: Image.asset(
-                'assets/images/logo.png',
-                width: screenWidth(3),
-                height: screenHieght(3),
-              ),
-            ),
-            CustomGred(
-              color: AppColors.mainBlueColorE,
-              text: 'Log in',
-              onTap: () {
-                Get.to(LogInView());
-              },
-            ),
-            screenHieght(20).ph,
-            Row(
+            Column(
               children: [
-                Container(
-                  width: 190,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        strokeAlign: BorderSide.strokeAlignCenter,
+                Column(
+                  children: [
+                    screenHieght(20).ph,
+                    Center(
+                      child: Image.asset(
+                        'assets/images/logo.png',
+                        width: screenWidth(3),
+                        height: screenHieght(3),
                       ),
                     ),
-                  ),
-                ),
-                Text(' OR '),
-                Container(
-                  width: 190,
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                      ),
+                    CustomGred(
+                      color: AppColors.mainBlueColorE,
+                      text: 'Log in',
+                      onTap: () {
+                        Get.to(LogInView());
+                      },
                     ),
-                  ),
+                    screenHieght(30).ph,
+                    Row(
+                      children: [
+                        Container(
+                          width: screenWidth(2.2),
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignCenter,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Text('   OR  '),
+                        Container(
+                          width: screenWidth(2.2),
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                width: 1,
+                                strokeAlign: BorderSide.strokeAlignCenter,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    screenHieght(30).ph,
+                    CustomGred(
+                        color: AppColors.mainOrangeColorE,
+                        text: 'sign Up',
+                        onTap: () {
+                          Get.to(SignUpView());
+                        }),
+                  ],
                 ),
               ],
             ),
-            screenHieght(20).ph,
-            CustomGred(
-                color: AppColors.mainOrangeColorE,
-                text: 'sign Up',
-                onTap: () {
-                  Get.to(SignUpView());
-                }),
           ],
         ),
       ),

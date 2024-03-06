@@ -28,13 +28,19 @@ class _CustomButtonGerState extends State<CustomButtonGer> {
           gradient: LinearGradient(
             begin: Alignment(-0.98, -0.18),
             end: Alignment(0.98, 0.18),
-            colors: [Color(0xFF06A9B2), Color(0x0006A9B2)],
+            colors: [
+              // Color(0xFF06A9B2),
+              AppColors.secondaryBlueColorE,
+              AppColors.secondaryBlueColorE,
+              AppColors.mainBlueGreeE,
+              AppColors.mainBlueGreeE,
+            ],
           ),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           shadows: [
             BoxShadow(
-              color: AppColors.mainlightgrey,
-              blurRadius: 4,
+              color: AppColors.mainBlackColorE,
+              blurRadius: 12,
               offset: Offset(0, 4),
               spreadRadius: 0,
             )
