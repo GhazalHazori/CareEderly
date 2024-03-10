@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
-import 'package:flutter_templete/ui/shared/utils.dart';
 
 class CustomButtonGer extends StatefulWidget {
   const CustomButtonGer(

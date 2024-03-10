@@ -9,15 +9,41 @@ import 'package:flutter_templete/ui/views/signnn_view/signnn_view.dart';
 import 'package:get/get.dart';
 
 class SignnView extends StatefulWidget {
-  const SignnView({super.key});
+  const SignnView({
+    super.key,
+    required this.email,
+    required this.phone,
+    required this.lname,
+    required this.fname,
+    required this.age,
+    required this.phnumber,
+  });
+  final String email;
+  final String phone;
+  final String lname;
+  final String phnumber;
+  final String fname;
+  final String age;
 
   @override
   State<SignnView> createState() => _SignnViewState();
 }
 
 class _SignnViewState extends State<SignnView> {
-  SignnController controller = Get.put(SignnController());
+  late SignnController controller;
+
   @override
+  void initState() {
+    controller = Get.put(SignnController(
+      email: widget.email,
+      phone: widget.phone,
+      lname: widget.lname,
+      fname: widget.fname,
+      age: widget.age,
+    ));
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(children: [
@@ -56,7 +82,7 @@ class _SignnViewState extends State<SignnView> {
               ),
               title: Obx(
                 () => Text(
-                  controller.disesesList[index],
+                  controller.disesesList[index].toString(),
                   style: TextStyle(
                     color: controller.selectedDiseases.contains(index)
                         ? AppColors.mainBlueColorE
@@ -89,7 +115,14 @@ class _SignnViewState extends State<SignnView> {
               wight: screenWidth(3),
               text: 'Next',
               onTap: () {
-                Get.to(SignnnUpView());
+                Get.to(SignnnUpView(
+                  diseses: controller.selectedDiseasesValues,
+                  email: widget.email,
+                  age: widget.age,
+                  fname: widget.fname,
+                  lname: widget.lname,
+                  phone: widget.phone,
+                ));
               },
             )
           ],

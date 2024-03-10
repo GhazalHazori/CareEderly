@@ -11,17 +11,23 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class VerificationCodeView extends StatefulWidget {
-  const VerificationCodeView({super.key});
+  const VerificationCodeView({super.key, required this.email});
+  final String email;
 
   @override
   State<VerificationCodeView> createState() => _VerificationCodeViewState();
 }
 
 class _VerificationCodeViewState extends State<VerificationCodeView> {
-  VarificationCodeController controller = Get.put(VarificationCodeController());
+  late VarificationCodeController controller;
+
   TextEditingController controllerCode = TextEditingController();
+
   @override
   void initState() {
+    controller = Get.put(VarificationCodeController(
+      email: widget.email,
+    ));
     super.initState();
   }
 
@@ -55,9 +61,6 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                       fontSize: 24,
                       bold: true,
                     ),
-
-                    // OtpScreen(),
-                    //StarTextField(),
                     screenHieght(20).ph,
                     PinCodeTextField(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -65,9 +68,9 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                       length: 4,
                       obscureText: true,
                       obscuringCharacter: '*',
-                      animationType: AnimationType.slide, //can change
+                      animationType: AnimationType.slide,
                       pinTheme: PinTheme(
-                        shape: PinCodeFieldShape.box, //can change
+                        shape: PinCodeFieldShape.box,
                         borderRadius: BorderRadius.circular(5),
                         selectedFillColor: AppColors.mainBlueEpin,
                         inactiveFillColor: AppColors.mainBlueEpin,
@@ -81,19 +84,13 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                       ),
                       cursorColor: AppColors.fillGreyColor,
                       hintCharacter: '*',
-
                       animationDuration: Duration(milliseconds: 300),
                       enableActiveFill: true,
-                      controller: controllerCode,
-                      // بتتحسس لكل مدخلات عند لخر ادخال خدني ع واجهة اذا مافي زر
-                      // onChanged: (value) {
-                      //   print("complete");
-                      // },
+                      controller: controller.controllerCode,
                       onChanged: controller.OnChangedCode,
                       beforeTextPaste: (text) {
                         print("Allowing to paste $text");
-                        //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                        //but you can show anything you want here, like your pop up saying wrong paste format or etc
+
                         return true;
                       },
                     ),
@@ -102,9 +99,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                       text: 'Next',
                       color: AppColors.mainBlueColorE,
                       onTap: () {
-                        CustomToast.showMessage(
-                            message: 'verification Done',
-                            messageType: MessageType.SUCCESS);
+                        controller.verfiy();
                       },
                     ),
                     screenHieght(50).ph,

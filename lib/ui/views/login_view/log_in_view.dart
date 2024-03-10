@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_templete/core/data/reposotories/shared_prefernces.dart';
-import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_gred_button_large.dart';
-import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 import 'package:flutter_templete/ui/views/login_view/log_in_controller.dart';
 import 'package:flutter_templete/ui/views/sign_up_view/sign_up_view.dart';
-import 'package:flutter_templete/ui/views/splash_screen/spalsh_screen_view.dart';
 import 'package:get/get.dart';
 
 class LogInView extends StatefulWidget {
@@ -94,6 +90,9 @@ class _LogInViewState extends State<LogInView> {
             ),
             screenHieght(20).ph,
             CustomGred(
+              onTap: () {
+                controller.login();
+              },
               text: 'Login',
               color: AppColors.mainBlueColorE,
             ),
@@ -112,18 +111,7 @@ class _LogInViewState extends State<LogInView> {
                   ),
                   InkWell(
                     onTap: () {
-                      if (controller.formKey.currentState!.validate()) {
-                        SharedPrefrenceRepostory().setLoginInfo([
-                          controller.emailController.text,
-                          controller.passwordController.text
-                        ]);
-
-                        Get.to(SplashSceenView());
-                      } else {
-                        CustomToast.showMessage(
-                            message: 'User is not valid',
-                            messageType: MessageType.WARNING);
-                      }
+                      Get.to(SignUpView());
                     },
                     child: Text(
                       'Sign Up',

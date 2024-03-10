@@ -1,8 +1,8 @@
 class CommonResponse<T> {
-  int? statusCode; //ok
+  int? statusCode;
   T? data;
-  String? message; //error
-//objject
+  String? message;
+
   CommonResponse.fromJson(dynamic json) {
     this.statusCode = json['statusCode'];
     if (statusCode.toString().startsWith('2')) {
@@ -14,7 +14,7 @@ class CommonResponse<T> {
           json['response'] is Map &&
           json['response']['title'] != null) {
         //title or num
-        this.message = json['response']['title']; //if no key for error
+        this.message = json['response']['title'];
       } else {
         //or status code
         switch (statusCode) {
@@ -33,16 +33,10 @@ class CommonResponse<T> {
           case 503:
             this.message = '503 Server unavailable';
             break;
-          //error on phone without console
         }
       }
     }
   }
-  // bool get getStatus=>statusCode==200?true:false;
+
   bool get getStatus => statusCode.toString().startsWith('2');
-  //ok or not ok for this req
-  //for  developper
-  //message from api
-//
 }
-// CommonResponse<String>();

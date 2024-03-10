@@ -22,4 +22,5 @@ class SignUpController extends BaseController {
   TextEditingController ageController = TextEditingController(
       // text: "test@1234"
       );
+  // List<String> userEmailList = [];
 }

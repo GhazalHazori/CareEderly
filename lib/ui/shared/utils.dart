@@ -14,12 +14,12 @@ double screenHieght(double percent) {
 
 void customLoader() => BotToast.showCustomLoading(toastBuilder: (context) {
       return Container(
-          decoration: BoxDecoration(
-              color: AppColors.mainback.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           width: screenWidth(4),
           height: screenHieght(4),
-          child: SpinKitCircle());
+          child: SpinKitCircle(
+            color: AppColors.mainBlueColorE,
+          ));
     });
 bool isEmail(String value) {
   RegExp regExp = new RegExp(

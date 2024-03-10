@@ -6,7 +6,7 @@ import 'package:flutter_templete/core/enums/request_type.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkUtil {
-  static String baseUrl = 'training.owner-tech.com';
+  static String baseUrl = 're-project-8pu1.onrender.com';
   static var client = http.Client();
   static Future<dynamic> sendRequest({
     required RequestType type,
@@ -81,10 +81,6 @@ class NetworkUtil {
     Map<String, String>? files = const {},
     Map<String, dynamic>? params,
   }) async {
-// assert(
-//       requestType == RequestType.GET || requestType == RequestType.MULTIPART,
-//       'Focus pls');
-
     try {
       var request = http.MultipartRequest(
           requestType.name, Uri.https(baseUrl, url, params));

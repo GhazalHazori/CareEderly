@@ -6,21 +6,46 @@ import 'package:flutter_templete/ui/shared/custom_widgets/custom_form.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 import 'package:flutter_templete/ui/views/signn_view/signn_view.dart';
 import 'package:flutter_templete/ui/views/signnn_view/signnn_controlller.dart';
-import 'package:flutter_templete/ui/views/varification_code/varification_cod_view.dart';
 import 'package:get/get.dart';
 
 class SignnnUpView extends StatefulWidget {
-  const SignnnUpView({super.key});
-
+  const SignnnUpView(
+      {super.key,
+      required this.email,
+      required this.phone,
+      required this.lname,
+      required this.fname,
+      required this.age,
+      required this.diseses});
+  final String email;
+  final List<String> diseses;
+  final String phone;
+  final String lname;
+  final String fname;
+  final String age;
   @override
   State<SignnnUpView> createState() => _SignnnUpViewState();
 }
 
 class _SignnnUpViewState extends State<SignnnUpView> {
-  SignnnUpController controller = Get.put(SignnnUpController());
+  late SignnnUpController controller;
+  @override
+  void initState() {
+    controller = Get.put(SignnnUpController(
+      email: widget.email,
+      diseses: widget.diseses,
+      phone: widget.phone,
+      lname: widget.lname,
+      fname: widget.fname,
+      age: widget.age,
+    ));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           screenHieght(20).ph,
@@ -38,6 +63,7 @@ class _SignnnUpViewState extends State<SignnnUpView> {
           screenHieght(20).ph,
           Obx(
             () => CustomTextFormField(
+              obscureText: !controller.passwordVisible2.value,
               suffixi: InkWell(
                 onTap: () {
                   controller.hidePassword2(
@@ -70,6 +96,7 @@ class _SignnnUpViewState extends State<SignnnUpView> {
           screenHieght(20).ph,
           Obx(
             () => CustomTextFormField(
+              obscureText: !controller.passwordVisible.value,
               suffixi: InkWell(
                 onTap: () {
                   controller.hidePassword(
@@ -94,8 +121,8 @@ class _SignnnUpViewState extends State<SignnnUpView> {
               validator: (value) {
                 if (value!.isEmpty ||
                     !isPassword(value) ||
-                    controller.passwordController !=
-                        controller.confirmpasswordController) {
+                    controller.passwordController.text !=
+                        controller.confirmpasswordController.text) {
                   return 'please check your confirm password';
                 }
                 return null;
@@ -105,7 +132,13 @@ class _SignnnUpViewState extends State<SignnnUpView> {
           screenHieght(20).ph,
           CustomButtonGer(
             onTap: () {
-              Get.to(VerificationCodeView());
+              controller.register();
+              // Get.to(VerificationCodeView(
+              //   email: widget.email,
+              // ));
+              // if (controller.formKey.currentState!.validate()) {
+              //   Get.to(VerificationCodeView());
+              // }
             },
             text: 'Create',
             wight: screenWidth(2),
@@ -119,7 +152,14 @@ class _SignnnUpViewState extends State<SignnnUpView> {
               children: [
                 CustomButtonGer(
                   onTap: () {
-                    Get.to(SignnView());
+                    Get.to(SignnView(
+                      phnumber: widget.phone,
+                      email: widget.email,
+                      age: widget.age,
+                      fname: widget.fname,
+                      lname: widget.lname,
+                      phone: widget.phone,
+                    ));
                   },
                   text: 'back',
                   wight: screenWidth(3),
