@@ -51,14 +51,14 @@ class _SignnViewState extends State<SignnView> {
         child: Image.asset(
           'assets/images/logo.png',
           width: screenWidth(3),
-          height: screenHieght(3),
+          height: screenHeight(3),
         ),
       ),
       Text(
         'Sign Up',
         style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       ),
-      screenHieght(30).ph,
+      screenHeight(30).ph,
       Text(
         'Choose the diseses you suffer from:',
         style: TextStyle(
@@ -66,7 +66,7 @@ class _SignnViewState extends State<SignnView> {
         ),
       ),
       SizedBox(
-        height: screenHieght(3),
+        height: screenHeight(3),
         child: ListView.builder(
           itemCount: controller.disesesList.length,
           itemBuilder: (context, index) {
@@ -94,13 +94,13 @@ class _SignnViewState extends State<SignnView> {
           },
         ),
       ),
-      screenHieght(20).ph,
+      screenHeight(20).ph,
       Padding(
         padding: EdgeInsets.symmetric(horizontal: screenWidth(20)),
         child: Row(
           children: [
             CustomButtonGer(
-              hight: screenHieght(18),
+              hight: screenHeight(18),
               wight: screenWidth(3),
               text: 'Back',
               onTap: () {
@@ -111,7 +111,7 @@ class _SignnViewState extends State<SignnView> {
               width: screenWidth(5),
             ),
             CustomButtonGer(
-              hight: screenHieght(18),
+              hight: screenHeight(18),
               wight: screenWidth(3),
               text: 'Next',
               onTap: () {

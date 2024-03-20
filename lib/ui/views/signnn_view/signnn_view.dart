@@ -48,19 +48,19 @@ class _SignnnUpViewState extends State<SignnnUpView> {
       resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-          screenHieght(20).ph,
+          screenHeight(20).ph,
           Center(
             child: Image.asset(
               'assets/images/logo.png',
               width: screenWidth(3),
-              height: screenHieght(3),
+              height: screenHeight(3),
             ),
           ),
           Text(
             'Sign Up',
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
-          screenHieght(20).ph,
+          screenHeight(20).ph,
           Obx(
             () => CustomTextFormField(
               obscureText: !controller.passwordVisible2.value,
@@ -93,7 +93,7 @@ class _SignnnUpViewState extends State<SignnnUpView> {
               },
             ),
           ),
-          screenHieght(20).ph,
+          screenHeight(20).ph,
           Obx(
             () => CustomTextFormField(
               obscureText: !controller.passwordVisible.value,
@@ -129,7 +129,7 @@ class _SignnnUpViewState extends State<SignnnUpView> {
               },
             ),
           ),
-          screenHieght(20).ph,
+          screenHeight(20).ph,
           CustomButtonGer(
             onTap: () {
               controller.register();
@@ -142,9 +142,9 @@ class _SignnnUpViewState extends State<SignnnUpView> {
             },
             text: 'Create',
             wight: screenWidth(2),
-            hight: screenHieght(18),
+            hight: screenHeight(18),
           ),
-          screenHieght(20).ph,
+          screenHeight(20).ph,
           Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth(20)),
             child: Row(
@@ -163,7 +163,7 @@ class _SignnnUpViewState extends State<SignnnUpView> {
                   },
                   text: 'back',
                   wight: screenWidth(3),
-                  hight: screenHieght(18),
+                  hight: screenHeight(18),
                 ),
               ],
             ),

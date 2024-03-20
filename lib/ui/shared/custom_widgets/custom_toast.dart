@@ -38,7 +38,7 @@ class CustomToast {
           return Container(
             margin: EdgeInsets.all(screenWidth(10)),
             width: screenWidth(1.5),
-            height: screenHieght(4),
+            height: screenHeight(4),
             decoration: BoxDecoration(
                 color: AppColors.mainWhiteColor,
                 borderRadius: BorderRadius.circular(20),

@@ -57,7 +57,7 @@ class CustomButton extends StatelessWidget {
         shape: StadiumBorder(),
         fixedSize: Size(
           screenWidth(1.1),
-          screenHieght(12),
+          screenHeight(12),
           // size.height * 0.08,
         ),
       ),

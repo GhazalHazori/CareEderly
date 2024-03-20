@@ -126,7 +126,7 @@ class _IntroViewState extends State<IntroView> {
                               Visibility(
                                 visible: controller.currentIndex != 0,
                                 child: CustomButtonGer(
-                                    hight: screenHieght(18),
+                                    hight: screenHeight(18),
                                     wight: screenWidth(3),
                                     text: 'Back',
                                     onTap: () {
@@ -137,7 +137,7 @@ class _IntroViewState extends State<IntroView> {
                                     }),
                               ),
                               CustomButtonGer(
-                                  hight: screenHieght(18),
+                                  hight: screenHeight(18),
                                   wight: screenWidth(3),
                                   text: controller.isLastIndex()
                                       ? 'Finish'

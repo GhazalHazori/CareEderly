@@ -8,7 +8,7 @@ double screenWidth(double percent) {
   return Get.width / percent;
 }
 
-double screenHieght(double percent) {
+double screenHeight(double percent) {
   return Get.height / percent;
 }
 
@@ -16,7 +16,7 @@ void customLoader() => BotToast.showCustomLoading(toastBuilder: (context) {
       return Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           width: screenWidth(4),
-          height: screenHieght(4),
+          height: screenHeight(4),
           child: SpinKitCircle(
             color: AppColors.mainBlueColorE,
           ));

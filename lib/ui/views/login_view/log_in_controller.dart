@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_templete/core/data/reposotories/user_repository.dart';
 import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/core/services/base_controller.dart';
+import 'package:flutter_templete/core/utils/general_utils.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
 import 'package:flutter_templete/ui/views/intro_view/intro_view.dart';
+import 'package:flutter_templete/ui/views/main_view/home_view/home_view.dart';
+import 'package:flutter_templete/ui/views/main_view/main_view.dart';
 import 'package:get/get.dart';
 
 class LoginController extends BaseController {
@@ -43,7 +46,8 @@ class LoginController extends BaseController {
                   messageType: MessageType.SUCCESS,
                   message: "Succed",
                 );
-                Get.off(() => IntroView());
+                storage.setTokenInfo(r);
+                Get.to(MainView());
               },
             ),
           ),

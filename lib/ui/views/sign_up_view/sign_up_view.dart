@@ -29,19 +29,19 @@ class _SignUpViewState extends State<SignUpView> {
           key: controller.formKey,
           child: Column(
             children: [
-              screenHieght(20).ph,
+              screenHeight(20).ph,
               Center(
                 child: Image.asset(
                   'assets/images/logo.png',
                   width: screenWidth(3),
-                  height: screenHieght(3),
+                  height: screenHeight(3),
                 ),
               ),
               Text(
                 'Sign Up',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              screenHieght(20).ph,
+              screenHeight(20).ph,
               CustomTextFormField(
                 suffixi: Icon(
                   Icons.email_outlined,
@@ -58,7 +58,7 @@ class _SignUpViewState extends State<SignUpView> {
                   return null;
                 },
               ),
-              screenHieght(20).ph,
+              screenHeight(20).ph,
               CustomTextFormField(
                 suffixi: Icon(
                   Icons.phone,
@@ -75,7 +75,7 @@ class _SignUpViewState extends State<SignUpView> {
                   return null;
                 },
               ),
-              screenHieght(20).ph,
+              screenHeight(20).ph,
               Row(
                 children: [
                   CustomTextFormField(
@@ -107,10 +107,10 @@ class _SignUpViewState extends State<SignUpView> {
                       return null;
                     },
                   ),
-                  screenHieght(20).ph,
+                  screenHeight(20).ph,
                 ],
               ),
-              screenHieght(20).ph,
+              screenHeight(20).ph,
               Align(
                 alignment: AlignmentDirectional.topStart,
                 child: CustomTextFormField(
@@ -127,12 +127,12 @@ class _SignUpViewState extends State<SignUpView> {
                   },
                 ),
               ),
-              screenHieght(20).ph,
+              screenHeight(20).ph,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   CustomButtonGer(
-                    hight: screenHieght(18),
+                    hight: screenHeight(18),
                     wight: screenWidth(3),
                     text: 'Next',
                     onTap: () {

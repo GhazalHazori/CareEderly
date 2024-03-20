@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_gred_button_large.dart';
-import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
-import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_texttt.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 import 'package:flutter_templete/ui/views/varification_code/varrification_code_controller.dart';
 import 'package:get/get.dart';
@@ -37,31 +35,31 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
             resizeToAvoidBottomInset: false,
             body: Center(
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: screenHieght(16)),
+                padding: EdgeInsets.symmetric(vertical: screenHeight(16)),
                 child: Column(
                   children: [
-                    CustomText(
+                    CustomTexttt(
                       fontSize: 40,
                       text: 'We sent an OTP to',
                       textAlign: TextAlign.start,
                       textColor: AppColors.mainblack,
                     ),
-                    screenHieght(50).ph,
-                    CustomText(
+                    screenHeight(50).ph,
+                    CustomTexttt(
                       fontSize: 30,
                       text: 'your email',
                       textAlign: TextAlign.start,
                       textColor: AppColors.mainblack,
                     ),
-                    screenHieght(50).ph,
-                    CustomText(
+                    screenHeight(50).ph,
+                    CustomTexttt(
                       text: 'Please check your email  *****.com',
                       textAlign: TextAlign.center,
                       textColor: AppColors.secondaryGreyColor,
                       fontSize: 24,
                       bold: true,
                     ),
-                    screenHieght(20).ph,
+                    screenHeight(20).ph,
                     PinCodeTextField(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       appContext: context,
@@ -94,7 +92,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                         return true;
                       },
                     ),
-                    screenHieght(50).ph,
+                    screenHeight(50).ph,
                     CustomGred(
                       text: 'Next',
                       color: AppColors.mainBlueColorE,
@@ -102,7 +100,7 @@ class _VerificationCodeViewState extends State<VerificationCodeView> {
                         controller.verfiy();
                       },
                     ),
-                    screenHieght(50).ph,
+                    screenHeight(50).ph,
                   ],
                 ),
               ),

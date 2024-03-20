@@ -52,7 +52,7 @@ class CustomTextFormField extends StatelessWidget {
         suffixIcon: suffixi,
         contentPadding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
         constraints: BoxConstraints(
-          maxHeight: maxHeight ?? screenHieght(15),
+          maxHeight: maxHeight ?? screenHeight(15),
           maxWidth: maxWidth ?? screenWidth(1.1),
         ),
         border: OutlineInputBorder(

@@ -26,19 +26,19 @@ class _LogInViewState extends State<LogInView> {
         key: controller.formKey,
         child: Column(
           children: [
-            screenHieght(20).ph,
+            screenHeight(20).ph,
             Center(
               child: Image.asset(
                 'assets/images/logo.png',
                 width: screenWidth(3),
-                height: screenHieght(3),
+                height: screenHeight(3),
               ),
             ),
             Text(
               'login',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
-            screenHieght(20).ph,
+            screenHeight(20).ph,
             CustomTextFormField(
               suffixi: Icon(
                 Icons.email_outlined,
@@ -55,7 +55,7 @@ class _LogInViewState extends State<LogInView> {
                 return null;
               },
             ),
-            screenHieght(20).ph,
+            screenHeight(20).ph,
             Obx(
               () => CustomTextFormField(
                 obscureText: !controller.passwordVisible.value,
@@ -88,7 +88,7 @@ class _LogInViewState extends State<LogInView> {
                 },
               ),
             ),
-            screenHieght(20).ph,
+            screenHeight(20).ph,
             CustomGred(
               onTap: () {
                 controller.login();
@@ -96,7 +96,7 @@ class _LogInViewState extends State<LogInView> {
               text: 'Login',
               color: AppColors.mainBlueColorE,
             ),
-            screenHieght(20).ph,
+            screenHeight(20).ph,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth(13)),
               child: Row(

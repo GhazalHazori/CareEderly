@@ -39,7 +39,7 @@ extension emptypadding on num {
         height: toDouble(),
       );
   SizedBox get pw => SizedBox(
-        height: toDouble(),
+        width: toDouble(),
       );
 }
 

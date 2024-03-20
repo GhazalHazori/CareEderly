@@ -25,12 +25,12 @@ class _LandingViewState extends State<LandingView> {
               children: [
                 Column(
                   children: [
-                    screenHieght(20).ph,
+                    screenHeight(20).ph,
                     Center(
                       child: Image.asset(
                         'assets/images/logo.png',
                         width: screenWidth(3),
-                        height: screenHieght(3),
+                        height: screenHeight(3),
                       ),
                     ),
                     CustomGred(
@@ -40,7 +40,7 @@ class _LandingViewState extends State<LandingView> {
                         Get.to(LogInView());
                       },
                     ),
-                    screenHieght(30).ph,
+                    screenHeight(30).ph,
                     Row(
                       children: [
                         Container(
@@ -68,7 +68,7 @@ class _LandingViewState extends State<LandingView> {
                         ),
                       ],
                     ),
-                    screenHieght(30).ph,
+                    screenHeight(30).ph,
                     CustomGred(
                         color: AppColors.mainOrangeColorE,
                         text: 'sign Up',
