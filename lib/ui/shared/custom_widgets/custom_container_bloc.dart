@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
@@ -26,10 +28,13 @@ class _CustomContainerBlocState extends State<CustomContainerBloc> {
       ),
       child: Column(
         children: [
-          SvgPicture.asset(
-            'assets/images/${widget.imagename}.svg',
-            height: screenHeight(6),
+          screenHeight(20).ph,
+          CachedNetworkImage(
+            imageUrl: "${widget.imagename}",
+            width: screenWidth(3),
+            height: screenHeight(9),
           ),
+          screenHeight(50).ph,
           CustomText(
             text: "${widget.name}",
             fonttext: screenWidth(25),

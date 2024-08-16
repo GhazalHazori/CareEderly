@@ -19,7 +19,8 @@ class NetworkConfig {
       RequestType? type,
       Map<String, String>? extraHeaders}) {
     return {
-      if (needAuth) "token": "${storage.getTokenInfo()?.accessToken ?? ''}",
+      if (needAuth)
+        "Authorization": "Barrier ${storage.getTokenInfo()?.accessToken ?? ''}",
       if (type != RequestType.GET)
         "Content-Type": type == RequestType.MULTIPART
             ? "multipart/form-data"

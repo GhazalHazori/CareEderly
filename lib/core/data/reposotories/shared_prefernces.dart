@@ -41,6 +41,7 @@ class SharedPrefrenceRepostory {
     return globalSharedPreference.getStringList(PREF_CURRENT_USER_EMAIL) ?? [];
   }
 
+
   // void retrieveUserEmail() {
   //  {
   //     userEmailList = prefs.getStringList(PREF_CURRENT_USER_EMAIL) ?? [];
