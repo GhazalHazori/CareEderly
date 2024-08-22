@@ -3,8 +3,8 @@ class ActivityModel {
   String? elderly;
   String? activityName;
   String? description;
-  String? startDate;
   String? endDate;
+  int? repeat;
   String? createdAt;
   String? updatedAt;
   int? iV;
@@ -14,8 +14,8 @@ class ActivityModel {
       this.elderly,
       this.activityName,
       this.description,
-      this.startDate,
       this.endDate,
+      this.repeat,
       this.createdAt,
       this.updatedAt,
       this.iV});
@@ -25,8 +25,8 @@ class ActivityModel {
     elderly = json['elderly'];
     activityName = json['activityName'];
     description = json['description'];
-    startDate = json['startDate'];
     endDate = json['endDate'];
+    repeat = json['repeat'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
@@ -38,8 +38,8 @@ class ActivityModel {
     data['elderly'] = this.elderly;
     data['activityName'] = this.activityName;
     data['description'] = this.description;
-    data['startDate'] = this.startDate;
     data['endDate'] = this.endDate;
+    data['repeat'] = this.repeat;
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
     data['__v'] = this.iV;

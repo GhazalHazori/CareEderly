@@ -28,7 +28,7 @@ class _BlocViewState extends State<BlocView> {
       child: Column(
         children: [
           CustomMain(
-            text: "Plog page",
+            text: "Assistant page",
           ),
           Obx(
             () => SizedBox(

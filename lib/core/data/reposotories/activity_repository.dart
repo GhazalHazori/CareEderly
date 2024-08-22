@@ -68,7 +68,8 @@ class ActivityRepository {
       {String? activityName,
       String? description,
       String? endDate,
-      String? startDate,
+      int? repate,
+      bool? EnableNotification,
       required String id}) async {
     try {
       return NetworkUtil.sendRequest(
@@ -77,7 +78,8 @@ class ActivityRepository {
         body: {
           "activityName": activityName,
           "description": description,
-          "startDate": startDate,
+          "repeat": repate,
+          "EnableNotification": EnableNotification,
           "endDate": endDate
         },
         headers:
@@ -97,11 +99,13 @@ class ActivityRepository {
     }
   }
 
-  Future<Either<String, Map>> create({
-    required String activityName,
-    required String description,
-    required String endDate,
-  }) async {
+  Future<Either<String, Map>> create(
+      {required String activityName,
+      required String description,
+      required String endDate,
+      required int repate,
+      required bool EnableNotification,
+      required String id}) async {
     try {
       // final formattedEndDate = endDate.toIso8601String();
       // final formattedStartDate = startdate?.toIso8601String();
@@ -109,11 +113,13 @@ class ActivityRepository {
       // final formattedDateS = DateFormat('yyyy-MM-dd').format(startDate);
       return NetworkUtil.sendRequest(
         type: RequestType.POST,
-        url: ActivityEndpoints.add,
+        url: ActivityEndpoints.add + id,
         body: {
           "activityName": activityName,
           "description": description,
           "endDate": endDate,
+          "repeat": repate,
+          "EnableNotification": EnableNotification
 
           // "satrtdate": formattedStartDate
         },

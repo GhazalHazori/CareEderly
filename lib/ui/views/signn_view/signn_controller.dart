@@ -15,7 +15,7 @@ class SignnController extends BaseController {
     required this.fname,
     required this.age,
   });
-  List disesesList = ['Diabetes', 'Pressure sickness', 'Heart disease'];
+  List disesesList = ['Diabetes', 'Alzheimer\'s', 'Blood Pressure'];
 
   RxList<int> selectedDiseases = <int>[].obs;
   RxList<String> selectedDiseasesValues = <String>[].obs;

@@ -16,7 +16,7 @@ class _CustomMedicineState extends State<CustomMedicine> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenWidth(2.5),
+      width: screenWidth(2),
       height: screenHeight(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
@@ -46,7 +46,7 @@ class _CustomMedicineState extends State<CustomMedicine> {
                 style: TextStyle(
                     color: AppColors.blacktext, fontSize: screenWidth(25)),
               ),
-              screenWidth(50).pw,
+              screenWidth(25).pw,
               Text(
                 "${widget.medicinedetails!}",
                 style: TextStyle(color: AppColors.maingreen),

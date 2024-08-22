@@ -66,11 +66,18 @@ class _CustomAddMidicineDialogState extends State<CustomAddMidicineDialog> {
                 texteditingcontroller: controller.nameController,
               ),
               screenHeight(150).ph,
+
+              TextForm(
+                hinttext: ' repate',
+                texteditingcontroller: controller.repateController,
+              ),
+              screenHeight(150).ph,
               TextForm(
                 hinttext: ' Details',
                 texteditingcontroller: controller.detailsController,
-                maxLine: 5,
+                maxLine: 2,
               ),
+
               screenHeight(90).ph,
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -25,7 +25,7 @@ class _CustomEditActivityState extends State<CustomEditActivity> {
   TextEditingController repeatController = TextEditingController();
   RxString dropdownValue = ''.obs;
   RxList<String> dropList = ['Daily', 'weekly', 'permonth'].obs;
-  RxBool enable = false.obs;
+
   late DateTime selectedDate;
 
   ActivityViewController controller = Get.put(ActivityViewController());
@@ -60,11 +60,16 @@ class _CustomEditActivityState extends State<CustomEditActivity> {
                 hinttext: ' activity name',
                 texteditingcontroller: controller.nameEditmedicin,
               ),
-              screenHeight(200).ph,
+              screenHeight(150).ph,
+              TextForm(
+                hinttext: ' repate',
+                texteditingcontroller: controller.repeatControllerEdit,
+              ),
+              screenHeight(150).ph,
               TextForm(
                 hinttext: ' Details',
                 texteditingcontroller: controller.detailsEditmedicin,
-                maxLine: 5,
+                maxLine: 2,
               ),
               screenHeight(90).ph,
               // Row(
@@ -163,11 +168,12 @@ class _CustomEditActivityState extends State<CustomEditActivity> {
                     activeColor: AppColors.maingreen,
                     trackColor: AppColors.hintFielColor,
 
-                    value: enable.value, // Set the initial value of the switch
+                    value: controller
+                        .enable.value, // Set the initial value of the switch
                     onChanged: (value) {
                       // Handle switch state changes
                       // 'value' parameter contains the new state of the switch
-                      enable.value = value;
+                      controller.enable.value = value;
                     },
                   ),
                   CustomText(

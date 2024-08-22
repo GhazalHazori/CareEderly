@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_templete/core/data/reposotories/home_repository.dart';
-import 'package:flutter_templete/core/enums/operation_type.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_activity.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_medicins.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_mian.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
-import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 
 import 'package:flutter_templete/ui/views/main_view/home_view/home_view_controller.dart';
@@ -21,25 +19,14 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  HomeViewController controller = Get.put(HomeViewController());
+
   @override
   void initState() {
-    // TODO: implement initState
-    setState(() {
-      updatePage();
-    });
+    controller.updateData();
     super.initState();
   }
 
-  HomeViewController controller = Get.put(HomeViewController());
-  void updatePage() {
-    controller.medicineListHome.clear();
-    controller.getAllMedicineForHome();
-    controller.activityListHome.clear();
-    controller.getAllActivityForHome();
-    // Reload the medicine list
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -117,32 +104,35 @@ class _HomeViewState extends State<HomeView> {
                   ),
                   screenHeight(30).ph,
                   Obx(() {
-                    return SizedBox(
-                      height: 100,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: controller.activityListHome.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      InkWell(
-                                          onTap: () {},
-                                          child: CustomActivity(
-                                            activitName: controller
-                                                .activityListHome[index]
-                                                .activityName!,
-                                            activitydetails: controller
-                                                .activityListHome[index]
-                                                .description!,
-                                          ))
-                                    ]));
-                          }),
-                    );
+                    return controller.medicineListHome.isEmpty
+                        ? Text("no activity")
+                        : SizedBox(
+                            height: screenHeight(10),
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                                itemCount: controller.activityListHome.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 10),
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            InkWell(
+                                                onTap: () {},
+                                                child: CustomActivity(
+                                                  activitName: controller
+                                                      .activityListHome[index]
+                                                      .activityName!,
+                                                  activitydetails: controller
+                                                      .activityListHome[index]
+                                                      .description!,
+                                                ))
+                                          ]));
+                                }),
+                          );
                   }),
                 ],
               ),

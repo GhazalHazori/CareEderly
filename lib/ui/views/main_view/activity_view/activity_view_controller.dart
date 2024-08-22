@@ -20,6 +20,8 @@ class ActivityViewController extends BaseController {
   TextEditingController detailsController = TextEditingController();
   TextEditingController nameEditmedicin = TextEditingController();
   TextEditingController detailsEditmedicin = TextEditingController();
+  TextEditingController repateController = TextEditingController();
+  TextEditingController repeatControllerEdit = TextEditingController();
   RxList<ActivityModel> activityList = <ActivityModel>[].obs;
   DateTime editselectedDate = DateTime.now();
   @override
@@ -29,6 +31,8 @@ class ActivityViewController extends BaseController {
     super.onInit();
   }
 
+  RxBool enable = false.obs;
+
   DateTime selectedDate = DateTime.now();
   void add() {
     runFullLoadingFutureFunction(
@@ -37,6 +41,9 @@ class ActivityViewController extends BaseController {
             activityName: nameController.text,
             description: detailsController.text,
             endDate: selectedDate.toString(),
+            id: storage.GetUser().sId!,
+            EnableNotification: enable.value,
+            repate: int.parse(repateController.text),
           )
           .then(
             (value) => value.fold(

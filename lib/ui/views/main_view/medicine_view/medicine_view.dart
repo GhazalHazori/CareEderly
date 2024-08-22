@@ -66,48 +66,33 @@ class _MedicineViewState extends State<MedicineView> {
                                       update: () {
                                         UserRepository()
                                             .update(
-                                              id: medicinController
-                                                  .medicineList[index].sId
-                                                  .toString(),
-                                              medicinName: medicinController
-                                                          .nameEditmedicin
-                                                          .text ==
-                                                      ""
-                                                  ? medicinController
-                                                      .medicineList[index]
-                                                      .medicinName!
-                                                  : medicinController
-                                                      .nameEditmedicin.text,
-                                              description: medicinController
-                                                          .detailsEditmedicin
-                                                          .text ==
-                                                      ""
-                                                  ? medicinController
-                                                      .medicineList[index]
-                                                      .description!
-                                                  : medicinController
-                                                      .detailsEditmedicin.text,
-                                              startDate: medicinController
-                                                          .editselectedDate
-                                                          .toString() ==
-                                                      ""
-                                                  ? medicinController
-                                                      .medicineList[index]
-                                                      .startDate
-                                                  : medicinController
-                                                      .editselectedDate
-                                                      .toString(),
-                                              endDate: medicinController
-                                                          .editselectedDate
-                                                          .toString() ==
-                                                      DateTime.now().toString()
-                                                  ? medicinController
-                                                      .medicineList[index]
-                                                      .endDate
-                                                  : medicinController
-                                                      .editselectedDate
-                                                      .toString(),
-                                            )
+                                                id: medicinController
+                                                    .medicineList[index].sId
+                                                    .toString(),
+                                                medicinName: medicinController.nameControllerEdit.text == ""
+                                                    ? medicinController
+                                                        .medicineList[index]
+                                                        .medicinName!
+                                                    : medicinController
+                                                        .nameControllerEdit
+                                                        .text,
+                                                description: medicinController
+                                                            .detailsControllerEdit
+                                                            .text ==
+                                                        ""
+                                                    ? medicinController
+                                                        .medicineList[index]
+                                                        .description!
+                                                    : medicinController
+                                                        .detailsControllerEdit
+                                                        .text,
+                                                endDate: medicinController.editselectedDate
+                                                            .toString() ==
+                                                        DateTime.now().toString()
+                                                    ? medicinController.medicineList[index].endDate
+                                                    : medicinController.editselectedDate.toString(),
+                                                repate: int.parse(medicinController.repeatControllerEdit.text),
+                                                EnableNotification: medicinController.enable.value)
                                             .then(
                                               (value) => value.fold(
                                                 (l) {
@@ -159,7 +144,7 @@ class _MedicineViewState extends State<MedicineView> {
               padding: EdgeInsets.symmetric(horizontal: screenWidth(30)),
               child: CustomPlusButton(
                 widget: CustomAddMidicineDialog(),
-                text: "add an midicine",
+                text: "add a medicine",
               ),
             ),
           ],

@@ -103,7 +103,6 @@ class _DisDetailsViewState extends State<DisDetailsView> {
                             CustomText(text: "How To Use"),
                           ],
                         ),
-                        screenWidth(50).ph,
                         SizedBox(
                             height: screenHeight(4),
                             child: ListView.builder(
@@ -114,6 +113,31 @@ class _DisDetailsViewState extends State<DisDetailsView> {
                                 itemBuilder: (BuildContext context, int index) {
                                   return CustomText(
                                       text: widget.model.steps![index]);
+                                })),
+                        screenWidth(20).ph,
+                        Row(
+                          children: [
+                            Container(
+                              decoration:
+                                  BoxDecoration(color: AppColors.blacktext),
+                              width: screenWidth(200),
+                              height: screenHeight(10),
+                            ),
+                            screenWidth(35).pw,
+                            CustomText(text: "Advice"),
+                          ],
+                        ),
+                        screenWidth(20).ph,
+                        SizedBox(
+                            height: screenHeight(4),
+                            child: ListView.builder(
+                                physics: ScrollPhysics(),
+                                scrollDirection: Axis.vertical,
+                                shrinkWrap: true,
+                                itemCount: widget.model.advice!.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return CustomText(
+                                      text: widget.model.advice![index]);
                                 })),
                         screenWidth(50).ph,
                         CustomTextFormField(

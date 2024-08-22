@@ -23,9 +23,10 @@ class _CustomEditMidicineState extends State<CustomEditMidicine> {
   TextEditingController nameController = TextEditingController();
   TextEditingController detailsController = TextEditingController();
   TextEditingController repeatController = TextEditingController();
+
   RxString dropdownValue = ''.obs;
   RxList<String> dropList = ['Daily', 'weekly', 'permonth'].obs;
-  RxBool enable = false.obs;
+
   late DateTime selectedDate;
   MedicinViewController controller = Get.put(MedicinViewController());
   @override
@@ -57,13 +58,18 @@ class _CustomEditMidicineState extends State<CustomEditMidicine> {
               screenHeight(90).ph,
               TextForm(
                 hinttext: ' medicine name',
-                texteditingcontroller: controller.nameEditmedicin,
+                texteditingcontroller: controller.nameControllerEdit,
               ),
-              screenHeight(200).ph,
+              screenHeight(150).ph,
+              TextForm(
+                hinttext: ' repate',
+                texteditingcontroller: controller.repeatControllerEdit,
+              ),
+              screenHeight(150).ph,
               TextForm(
                 hinttext: ' Details',
-                texteditingcontroller: controller.detailsEditmedicin,
-                maxLine: 5,
+                texteditingcontroller: controller.detailsControllerEdit,
+                maxLine: 2,
               ),
               screenHeight(90).ph,
               // Row(
@@ -94,8 +100,7 @@ class _CustomEditMidicineState extends State<CustomEditMidicine> {
               //           borderRadius: BorderRadius.circular(5)),
               //       child: DropdownButton<String>(
               //         underline: Container(),
-              //         icon: Icon(Icons.keyboard_arrow_down),
-              //         hint: Text(
+              //         icon: Icon(Icons.keyboard_arrow_down),//         hint: Text(
               //           dropdownValue.value != ''
               //               ? "${dropdownValue.value}"
               //               : "chose a erpeat",
@@ -162,11 +167,12 @@ class _CustomEditMidicineState extends State<CustomEditMidicine> {
                     activeColor: AppColors.maingreen,
                     trackColor: AppColors.hintFielColor,
 
-                    value: enable.value, // Set the initial value of the switch
+                    value: controller
+                        .enable.value, // Set the initial value of the switch
                     onChanged: (value) {
                       // Handle switch state changes
                       // 'value' parameter contains the new state of the switch
-                      enable.value = value;
+                      controller.enable.value = value;
                     },
                   ),
                   CustomText(

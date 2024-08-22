@@ -17,7 +17,7 @@ class _CustomActivityState extends State<CustomActivity> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: screenWidth(2.5),
+      width: screenWidth(2),
       height: screenHeight(1),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),

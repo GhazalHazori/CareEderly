@@ -84,7 +84,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                         widget.ontap(BottomNavigationEnum.BLOC, 3);
                       },
                       size: size,
-                      imagename: 'ic_blog',
+                      imagename: 'blog_ic',
                       isslected: widget.navitm == BottomNavigationEnum.BLOC),
                   SizedBox(
                     width: screenWidth(15),

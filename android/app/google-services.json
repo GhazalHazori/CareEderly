@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "872879217025",
+    "project_id": "sema-1df7c",
+    "storage_bucket": "sema-1df7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872879217025:android:f9f1c44931948682167080",
+        "android_client_info": {
+          "package_name": "com.EENNAAYYAA.EENNAAYYAA"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU05lqhwLJKS4o_1fvsWw8HH8tr7z85qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872879217025:android:269ba3b29157aad5167080",
+        "android_client_info": {
+          "package_name": "com.sema.sema"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU05lqhwLJKS4o_1fvsWw8HH8tr7z85qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

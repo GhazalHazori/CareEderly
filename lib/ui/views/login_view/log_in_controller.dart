@@ -30,6 +30,7 @@ class LoginController extends BaseController {
     runFullLoadingFutureFunction(
       function: UserRepository()
           .login(
+            fcm: storage.getFcmToken(),
             email: emailController.text,
             password: passwordController.text,
           )

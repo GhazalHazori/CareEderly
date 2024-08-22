@@ -3,8 +3,9 @@ class MedicineModel {
   String? elderly;
   String? medicinName;
   String? description;
-  String? startDate;
   String? endDate;
+  int? repeat;
+  bool? enableNotification;
   String? createdAt;
   String? updatedAt;
   int? iV;
@@ -14,8 +15,9 @@ class MedicineModel {
       this.elderly,
       this.medicinName,
       this.description,
-      this.startDate,
       this.endDate,
+      this.repeat,
+      this.enableNotification,
       this.createdAt,
       this.updatedAt,
       this.iV});
@@ -25,8 +27,9 @@ class MedicineModel {
     elderly = json['elderly'];
     medicinName = json['medicinName'];
     description = json['description'];
-    startDate = json['startDate'];
     endDate = json['endDate'];
+    repeat = json['repeat'];
+    enableNotification = json['EnableNotification'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
@@ -38,8 +41,9 @@ class MedicineModel {
     data['elderly'] = this.elderly;
     data['medicinName'] = this.medicinName;
     data['description'] = this.description;
-    data['startDate'] = this.startDate;
     data['endDate'] = this.endDate;
+    data['repeat'] = this.repeat;
+    data['EnableNotification'] = this.enableNotification;
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
     data['__v'] = this.iV;

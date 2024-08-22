@@ -19,6 +19,7 @@ class SharedPrefrenceRepostory {
   String PREF_SUB_STATUS = 'sub_status';
   static String PREF_CURRENT_USER_EMAIL = "current user email";
   static String PREF_USER_INFO = 'user_info';
+  static String PREF_USER_FCM = 'fcm';
   SaveUser(UserModel usermodel) {
     setPreference(
         value: json.encode(usermodel),
@@ -40,7 +41,6 @@ class SharedPrefrenceRepostory {
   List<String> getLoginInfo() {
     return globalSharedPreference.getStringList(PREF_CURRENT_USER_EMAIL) ?? [];
   }
-
 
   // void retrieveUserEmail() {
   //  {
@@ -123,6 +123,22 @@ class SharedPrefrenceRepostory {
       return getPreferenc(key: PREF_FIRST_LOGIN);
     } else {
       return false;
+    }
+  }
+
+  void setFcmToken(String value) {
+    setPreference(
+      dataType: DataType.STRING,
+      key: PREF_USER_FCM,
+      value: value,
+    );
+  }
+
+  String getFcmToken() {
+    if (globalSharedPreference.containsKey(PREF_USER_FCM)) {
+      return getPreferenc(key: PREF_USER_FCM);
+    } else {
+      return "";
     }
   }
 

@@ -66,11 +66,16 @@ class _CustomAddActivityDialogState extends State<CustomAddActivityDialog> {
                 hinttext: ' Activity name',
                 texteditingcontroller: controller.nameController,
               ),
-              screenHeight(200).ph,
+              screenHeight(150).ph,
+              TextForm(
+                hinttext: ' repate',
+                texteditingcontroller: controller.repateController,
+              ),
+              screenHeight(150).ph,
               TextForm(
                 hinttext: ' Details',
                 texteditingcontroller: controller.detailsController,
-                maxLine: 5,
+                maxLine: 2,
               ),
               screenHeight(90).ph,
               Row(

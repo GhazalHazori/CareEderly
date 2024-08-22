@@ -46,7 +46,7 @@ class _ActiviteViewState extends State<ActiviteView> {
           return SizedBox(
             height: screenHeight(2.8),
             child: activityController.activityList.isEmpty
-                ? Text("no medicine")
+                ? Text("no activity")
                 : SizedBox(
                     height: screenHeight(2.2),
                     child: SingleChildScrollView(
@@ -66,48 +66,33 @@ class _ActiviteViewState extends State<ActiviteView> {
                                       update: () {
                                         ActivityRepository()
                                             .update(
-                                              id: activityController
-                                                  .activityList[index].sId
-                                                  .toString(),
-                                              activityName: activityController
-                                                          .nameEditmedicin
-                                                          .text ==
-                                                      ""
-                                                  ? activityController
-                                                      .activityList[index]
-                                                      .activityName!
-                                                  : activityController
-                                                      .nameEditmedicin.text,
-                                              description: activityController
-                                                          .detailsEditmedicin
-                                                          .text ==
-                                                      ""
-                                                  ? activityController
-                                                      .activityList[index]
-                                                      .description!
-                                                  : activityController
-                                                      .detailsEditmedicin.text,
-                                              startDate: activityController
-                                                          .editselectedDate
-                                                          .toString() ==
-                                                      ""
-                                                  ? activityController
-                                                      .activityList[index]
-                                                      .startDate
-                                                  : activityController
-                                                      .editselectedDate
-                                                      .toString(),
-                                              endDate: activityController
-                                                          .editselectedDate
-                                                          .toString() ==
-                                                      DateTime.now().toString()
-                                                  ? activityController
-                                                      .activityList[index]
-                                                      .endDate
-                                                  : activityController
-                                                      .editselectedDate
-                                                      .toString(),
-                                            )
+                                                id: activityController
+                                                    .activityList[index].sId
+                                                    .toString(),
+                                                activityName: activityController.nameEditmedicin.text == ""
+                                                    ? activityController
+                                                        .activityList[index]
+                                                        .activityName!
+                                                    : activityController
+                                                        .nameEditmedicin.text,
+                                                description: activityController
+                                                            .detailsEditmedicin
+                                                            .text ==
+                                                        ""
+                                                    ? activityController
+                                                        .activityList[index]
+                                                        .description!
+                                                    : activityController
+                                                        .detailsEditmedicin
+                                                        .text,
+                                                endDate: activityController
+                                                            .editselectedDate
+                                                            .toString() ==
+                                                        DateTime.now().toString()
+                                                    ? activityController.activityList[index].endDate
+                                                    : activityController.editselectedDate.toString(),
+                                                repate: int.parse(activityController.repeatControllerEdit.text),
+                                                EnableNotification: activityController.enable.value)
                                             .then(
                                               (value) => value.fold(
                                                 (l) {

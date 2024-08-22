@@ -12,6 +12,7 @@ class UserRepository {
   Future<Either<String, TokenInfo>> login({
     required String email,
     required String password,
+    required String fcm,
   }) async {
     try {
       return NetworkUtil.sendRequest(
@@ -21,7 +22,7 @@ class UserRepository {
           type: RequestType.POST,
           needAuth: false,
         ),
-        body: {"email": email, "password": password},
+        body: {"email": email, "password": password, "fcmToken": fcm},
       ).then(
         (response) {
           CommonResponse<Map<String, dynamic>> commonResponse =
@@ -81,6 +82,7 @@ class UserRepository {
     required String phnumber,
     required int age,
     required String password,
+    required String fcmm,
   }) async {
     try {
       return NetworkUtil.sendRequest(
@@ -93,6 +95,7 @@ class UserRepository {
           'lastname': lastname,
           'phnumber': phnumber,
           'password': password,
+          'fcmToken': fcmm,
           'age': age.toString()
         },
         headers: NetworkConfig.getHeaders(
@@ -118,11 +121,13 @@ class UserRepository {
     }
   }
 
-  Future<Either<String, Map>> create({
-    required String medicinName,
-    required String description,
-    required String endDate,
-  }) async {
+  Future<Either<String, Map>> create(
+      {required String medicinName,
+      required String description,
+      required String endDate,
+      required String id,
+      required int repate,
+      required bool EnableNotification}) async {
     try {
       // final formattedEndDate = endDate.toIso8601String();
       // final formattedStartDate = startdate?.toIso8601String();
@@ -130,11 +135,13 @@ class UserRepository {
       // final formattedDateS = DateFormat('yyyy-MM-dd').format(startDate);
       return NetworkUtil.sendRequest(
         type: RequestType.POST,
-        url: UserEndpoints.add,
+        url: UserEndpoints.add + id,
         body: {
           "medicinName": medicinName,
           "description": description,
           "endDate": endDate,
+          "repeat": repate,
+          "EnableNotification": EnableNotification
 
           // "satrtdate": formattedStartDate
         },
@@ -182,7 +189,8 @@ class UserRepository {
       {String? medicinName,
       String? description,
       String? endDate,
-      String? startDate,
+      int? repate,
+      bool? EnableNotification,
       required String id}) async {
     try {
       return NetworkUtil.sendRequest(
@@ -191,8 +199,9 @@ class UserRepository {
         body: {
           "medicinName": medicinName,
           "description": description,
-          "startDate": startDate,
-          "endDate": endDate
+          "endDate": endDate,
+          "repeat": repate,
+          "EnableNotification": EnableNotification
         },
         headers:
             NetworkConfig.getHeaders(needAuth: true, type: RequestType.PUT),

@@ -63,6 +63,8 @@ class HomeViewController extends BaseController {
     super.onInit();
   }
 
+  bool get isLoading => requestStatus.value == RequestStatus.LOADING;
+
   Future<void> getAllMedicineForHome() async {
     runLoadingFutureFunction(
         operationType: OperationType.MEDICINE,
@@ -78,6 +80,12 @@ class HomeViewController extends BaseController {
         }));
   }
 
+  bool get isMedicineLoading =>
+      requestStatus.value == RequestStatus.LOADING &&
+      operationType == OperationType.MEDICINE;
+  bool get isActivityLoading =>
+      requestStatus.value == RequestStatus.LOADING &&
+      operationType == OperationType.ACTIVITY;
   Future<void> getAllActivityForHome() async {
     runLoadingFutureFunction(
         operationType: OperationType.ACTIVITY,
@@ -91,5 +99,10 @@ class HomeViewController extends BaseController {
             activityListHome.value = r;
           });
         }));
+  }
+
+  Future<void> updateData() async {
+    await getAllMedicineForHome();
+    await getAllActivityForHome();
   }
 }

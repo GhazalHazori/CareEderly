@@ -7,6 +7,7 @@ import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/core/enums/operation_type.dart';
 import 'package:flutter_templete/core/enums/request_status.dart';
 import 'package:flutter_templete/core/services/base_controller.dart';
+import 'package:flutter_templete/core/services/notification_service.dart';
 import 'package:flutter_templete/core/utils/general_utils.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_toast.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,10 @@ class MedicinViewController extends BaseController {
   TextEditingController detailsController = TextEditingController();
   TextEditingController nameEditmedicin = TextEditingController();
   TextEditingController detailsEditmedicin = TextEditingController();
+  TextEditingController repateController = TextEditingController();
+  TextEditingController nameControllerEdit = TextEditingController();
+  TextEditingController detailsControllerEdit = TextEditingController();
+  TextEditingController repeatControllerEdit = TextEditingController();
   RxString firstname = "".obs;
   RxString phone = "".obs;
   RxString lastname = "".obs;
@@ -53,6 +58,9 @@ class MedicinViewController extends BaseController {
             medicinName: nameController.text,
             description: detailsController.text,
             endDate: selectedDate.toString(),
+            id: storage.GetUser().sId!,
+            EnableNotification: enable.value,
+            repate: int.parse(repateController.text),
           )
           .then(
             (value) => value.fold(
